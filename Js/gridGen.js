@@ -111,14 +111,14 @@ function colShake(num){
   if(colChecker(num)){
     var idea = Math.floor(num%9);
     for(i = 0; i < 9; i++){
-      for(j = idea-1; j <= idea-1; j++){
+      for(j = idea; j <= idea; j++){
         var cx = i*9+j;
         document.getElementById("p"+cx).style.color = "red";
       }
     }
     setTimeout(function(){
       for(i = 0; i < 9; i++){
-        for(j = idea-1; j <= idea-1; j++){
+        for(j = idea; j <= idea; j++){
           var cx = i*9+j;
           document.getElementById("p"+cx).style.color = "black";
         }
@@ -133,7 +133,9 @@ function colShake(num){
 // checking if the ROW is finished
 function Shaker(num){
   num = num.slice(1);
+  num = num - 1;
 
+  console.log(num);
   if(rowChecker(num)){
     var idea = Math.floor(num/9);
     for(i = idea; i <= idea; i++){

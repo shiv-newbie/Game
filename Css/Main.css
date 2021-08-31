@@ -1,7 +1,7 @@
 html, body{
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body{
@@ -25,9 +25,16 @@ body{
   font-size: 24px;
   border: 5px solid black;
   border-collapse: collapse;
-
 }
 
+.clock{
+  font-family: "comic sans ms";
+  background-color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  color: white;
+  border: 2px solid grey;
+  border-collapse: collapse;
+}
 
 .pal{
   font-family: "comic sans ms";
@@ -38,10 +45,39 @@ body{
   border-collapse: collapse;
 }
 
+.dottedPal{
+  font-family: "comic sans ms";
+  padding: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px dashed grey;
+  border-collapse: collapse;
+}
+
 .palr{
   border-right: 5px solid black;
 }
 
 .pald{
   border-bottom: 5px solid black;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  width: 25%;
+  left: 0;
+}
+
+.right {
+  width: 75%;
+  right: 0;
 }
