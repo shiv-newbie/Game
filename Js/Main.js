@@ -42,7 +42,7 @@ function drop(ev, i) {
   ev.target.appendChild(s);
 
   const palNum = s.innerHTML;
-
+  console.log(i);
   ev.target.innerHTML = palNum;
 
   gridCnt[palNum-1]++;
@@ -56,4 +56,5 @@ function drop(ev, i) {
   // TODO: Reset the grid if the number is correct
   ev.target.removeAttribute("ondrop");
   ev.target.removeAttribute("ondragover");
+  Shaker("p"+i);
 }
