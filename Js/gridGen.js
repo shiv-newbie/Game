@@ -135,7 +135,6 @@ function Shaker(num){
   num = num.slice(1);
   num = num - 1;
 
-  console.log(num);
   if(rowChecker(num)){
     var idea = Math.floor(num/9);
     for(i = idea; i <= idea; i++){

@@ -5,14 +5,35 @@
     <title></title>
     <link rel="stylesheet" href="Css/Main.css">
   </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Cookie:regular"]
+      }
+    });
+</script>
   <script src = Js/timer.js></script>
   <script src = Js/gridGen.js></script>
   <script src = Js/gridGen.js></script>
   <script src = Js/Main.js></script>
   <body>
+
     <!-- THE CLOCK AND ALL OTHER SETTINGS -->
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';" id="playHelp">&times;</span>
+      <strong>------------------------------- How To Play -------------------------------</strong><hr>
+      <ol style="text-align:left">
+        <li>Only use the numbers 1 to 9.</li>
+        <li>Avoid trying to guess the solution to the puzzle.</li>
+        <li>Only use each number once in each row, column, & grid.</li>
+        <li>Use the process of elimination as a tactic.</li>
+        <li>Use cross-hatching and penciling in techniques.</li>
+      </ol>
+    </div>
+
     <div class="split left ctr">
-      <h3><b>Timer</b></h3>
+      <h1><b>Timer</b></h1>
       <table class="ctr clock">
         <tr>
           <td class="dottedPal" id = "hr">00</td>
@@ -20,6 +41,22 @@
           <td class="dottedPal" id = "sec">00</td>
         </tr>
       </table>
+      <br>
+
+      <button type="button" class="pp" id="plu" onclick="stop()">Play</button><br><br><br><hr>
+
+      <h1><b>Help</b></h1><br>
+
+      <button type="button" class="pp" onclick="document.getElementById('playHelp').parentElement.style.display='';">How to play ?</button><br>
+      <!-- TODO: SHOW a number -->
+      <button type="button" class="pp" onclick="help()">Show a number (3)</button><br>
+      <br><br><hr>
+
+      <h1><b>Other Options: </b></h1><br>
+      <!-- TODO: RESET the sudoku -->
+      <button type="button" class="pp" onclick="reset();">Reset</button><br><br>
+      <!-- TODO: RETURN to Main Menu -->
+      <button type="button" class="pp" onclick="ret()">Return to Main Menu</button><br>
     </div>
     <!-- THE CLOCK AND ALL OTHER SETTINGS -->
 
@@ -27,8 +64,11 @@
 
     <!-- THE SUDOKU -->
     <div class="split right ctr">
-      <h1><b>Sudoku Master</b></h1><br>
-      <table class="ctr grid">
+      <div class="cover" id = "fullCover">
+        Click "Play" to start the game!!
+      </div>
+      <h1 style="font-size:40px;"><b>Sudoku Master</b></h1>
+      <table class="ctr grid" id = "sudoku">
         <script src="Js/grid.js"></script>
       </table>
       <br><br>

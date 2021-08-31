@@ -1,16 +1,29 @@
 var gridCnt = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+var isDead = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+// TODO: Impliment help and show a random cell
+function HTP(){
+
+}
+
+var help = 3;
+function help(){
+  help--;
+}
 
 function resetPal(num){
   var p = "";
-
+  if(num != -1){
+    isDead[num] = 1;
+  }
   for(i = 0; i < 9; i++){
     p += `<td class = "pal"><div = `;
-    if(i != num){
+    if(!isDead[i]){
       p +=`draggable="true" ondragstart="drag(event)" id = "`;
     }
     p += i + `">`;
 
-    if(i == num){
+    if(isDead[i]){
       p +=  "X";
     }else{
       p +=  i+1 ;
@@ -31,13 +44,11 @@ function drag(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
-var firstEvent = true;
 
 function drop(ev, i) {
 
-  if(firstEvent){
-    firstEvent = false;
-    time();
+  if(!toBreak){
+    stop();
   }
   // TODO: check if the number is correct & update gridCount
 
@@ -48,7 +59,6 @@ function drop(ev, i) {
   ev.target.appendChild(s);
 
   const palNum = s.innerHTML;
-  console.log(i);
   ev.target.innerHTML = palNum;
 
   gridCnt[palNum-1]++;
@@ -68,7 +78,7 @@ function drop(ev, i) {
       resetPal(palNum-1);
     }else {
       toBreak = true;
-      // TODO: The pallete is all used so stop the clock and display a congratulations message!!
+      // TODO: The pallete is all used so display a congratulations message!!
     }
 
   }

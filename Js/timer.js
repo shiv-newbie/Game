@@ -1,9 +1,35 @@
 var second = 00, minute = 00, hour = 00;
 var toBreak = false;
+var working = true;
+
+function stop(){
+
+  if(!toBreak){
+    toBreak = true;
+    document.getElementById('fullCover').style.display = 'none';
+    document.getElementById("sudoku").style.backgroundColor = "white";
+    document.getElementById("sudoku").style.opacity=0.7;
+    what = "Pause";
+    working = true;
+    time();
+  }else{
+    // TODO: HIDE the sudoku part of the page
+    document.getElementById('fullCover').style.display = '';
+    document.getElementById("sudoku").style.backgroundColor = "black";
+    document.getElementById("sudoku").style.opacity=1;
+
+
+    toBreak = false;
+    working = false;
+    what = "Play";
+  }
+
+  var elem = document.getElementById("plu").innerHTML = what;
+}
 
 function time(){
   setTimeout(function(){
-    if(!toBreak){
+    if(working){
       second++;
       if(second == 60){
         second = 0;
@@ -31,8 +57,6 @@ function time(){
       }else{
         document.getElementById("sec").innerHTML = second;
       }
-
-
 
       time();
     }
